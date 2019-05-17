@@ -64,6 +64,18 @@
         </style>
     </head>
     <body>
+
+        <div class="flex-center positoin-ref">
+            This is the new index stuff.
+
+
+            <a href="">Recipe Book Stuff</a>
+        </div>
+
+
+
+        <!-- Old content below here: -->
+
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
