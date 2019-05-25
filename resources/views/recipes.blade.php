@@ -10,6 +10,8 @@
 		<link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
 		<!-- Styles -->
 		<style>
 			html, body {
@@ -93,29 +95,35 @@
 					<h4>
 						Ingredients
 					</h4>
-					<div id="recipe-ingredients" class="ingredients-set" data-index="0">
-						<label for="quantity_0">Quantity</label>
-						<input type="text" size="3" id="quantity_0" name="ingredients[0][quantity]" class="ig-quantity">
-						<label for="scale_0">Measurement</label>
-						<input type="text" size="3" id="scale_0" name="ingredients[0][scale]" class="ig-scale">
-						<label for="ingredient_0">Ingredient</label>
-						<input type="text" id="ingredient_0" name="ingredients[0][name]" class="ig-name">
+					<div id="recipe-ingredients">
+						<div class="ingredients-set" data-index="0">
+							<label for="quantity_0">Quantity</label>
+							<input type="text" size="3" id="quantity_0" name="ingredients[0][quantity]" class="ig-quantity">
+							<label for="scale_0">Measurement</label>
+							<input type="text" size="3" id="scale_0" name="ingredients[0][scale]" class="ig-scale">
+							<label for="ingredient_0">Ingredient</label>
+							<input type="text" id="ingredient_0" name="ingredients[0][name]" class="ig-name">
+							<a onclick="removeIngredient(this);" class="fa fa-times"> Remove</a>
+						</div>
 					</div>
-					<br><a onclick="addIngredient();">Add Ingredient</a>
+					<br><a onclick="addIngredient();" class="fa fa-plus">Add Ingredient</a>
 				</div>
 				
 				<div style="border: 1px solid black;padding:10px;">
 					<h4>
 						Cooking Steps
 					</h4>
-					<div id="recipe-steps" class="steps-set" data-index="0">
-						<label for="number_0">Step</label>
-						<input type="text" id="number_0" name="steps[0][number]" size="3" class="step-number">
-						<label for="desc_0">Description</label>
-						<textarea id="desc_0" name="steps[0][description]" cols="80" rows="4" class="step-description"></textarea>
-						<input type="hidden" name="steps[0][seq]" value="0" class="step-seq">
+					<div id="recipe-steps">
+						<div class="steps-set" data-index="0">
+							<label for="number_0">Step</label>
+							<input type="text" id="number_0" name="steps[0][number]" size="3" class="step-number">
+							<label for="desc_0">Description</label>
+							<textarea id="desc_0" name="steps[0][description]" cols="80" rows="4" class="step-description"></textarea>
+							<input type="hidden" name="steps[0][seq]" value="0" class="step-seq">
+							<a onclick="removeStep(this);" class="fa fa-times"> Remove</a>
+						</div>
 					</div>
-					<br><a onclick="addStep();">Add Step</a>
+					<br><a onclick="addStep();" class="fa fa-plus"> Add Step</a>
 				</div>
 				
 				<br>
@@ -173,6 +181,24 @@ function addStep()
 	$new_set.find('input.step-seq').attr('name', 'steps['+index+'][seq]');
 	$new_set.find('input.step-seq').attr('value', index);
 	$('#recipe-steps').append($new_set);
+	return true;
+	}
+
+function removeIngredient(el)
+	{
+	if ($('.ingredients-set').length > 1)
+		{
+		$(el).closest('.ingredients-set').remove();
+		}
+	return true;
+	}
+
+function removeStep(el)
+	{
+	if ($('.steps-set').length > 1) 
+		{
+		$(el).closest('.steps-set').remove();
+		}
 	return true;
 	}
 

@@ -101,7 +101,14 @@
 						<div style="display: grid;grid-template-columns: 1fr 1fr;">
 						@foreach ($recipe->ingredients as $ingredient)
 							<div>
-								{{ $ingredient->quantity }} {{ $ingredient->scale }} {{ $ingredient->name }}
+								@if ($ingredient->quantity == 0.5)
+									&#189;
+								@elseif ($ingredient->quantity == 0.25)
+									&#188;
+								@else
+									{{ $ingredient->quantity }}	
+								@endif
+								 {{ $ingredient->scale }} {{ $ingredient->name }}
 							</div>
 						@endforeach
 						</div>
