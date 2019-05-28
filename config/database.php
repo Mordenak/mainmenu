@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Str;
 
+$heroku_opts = parse_url(getenv('DATABASE_URL'));
+
 return [
 
     /*
@@ -34,6 +36,15 @@ return [
     */
 
     'connections' => [
+
+    	'heroku' => [
+    		'driver' => 'pgsql',
+    		'user' => $heroku_opts['user'],
+    		'password' => $heroku_opts['password'],
+    		'host' => $heroku_opts['host'],
+    		'port' => $heroku_opts['port'],
+    		'dbname' => ltrim($heroku_opts['path'], '/')
+    	],
 
         'sqlite' => [
             'driver' => 'sqlite',
