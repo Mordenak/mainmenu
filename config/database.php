@@ -39,11 +39,11 @@ return [
 
     	'heroku' => [
     		'driver' => 'pgsql',
-    		'user' => $heroku_opts['user'],
+    		'username' => $heroku_opts['user'],
     		'password' => $heroku_opts['password'],
     		'host' => $heroku_opts['host'],
     		'port' => $heroku_opts['port'],
-    		'dbname' => ltrim($heroku_opts['path'], '/')
+    		'database' => ltrim($heroku_opts['path'], '/')
     	],
 
         'sqlite' => [
