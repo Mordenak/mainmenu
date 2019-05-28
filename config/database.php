@@ -40,7 +40,7 @@ return [
     	'heroku' => [
     		'driver' => 'pgsql',
     		'username' => $heroku_opts['user'],
-    		'password' => $heroku_opts['password'],
+    		'password' => $heroku_opts['pass'],
     		'host' => $heroku_opts['host'],
     		'port' => $heroku_opts['port'],
     		'database' => ltrim($heroku_opts['path'], '/')
