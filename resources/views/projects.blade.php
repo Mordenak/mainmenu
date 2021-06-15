@@ -49,6 +49,15 @@
                 font-size: 84px;
             }
 
+            .content a {
+                text-decoration: none;
+                color: #fff;
+            }
+
+            .content a:hover {
+                color: #f9fd32;
+            }
+
             .links > a {
                 color: #636b6f;
                 padding: 0 25px;
@@ -63,6 +72,8 @@
             .links > a:hover {
                 color: #c32727;
             }
+
+            
 
             .m-b-md {
                 margin-bottom: 30px;
@@ -89,12 +100,16 @@
             @endif
 
             <div class="content">
+                <div>
+                    <a href="/">< Back to Main Menu</a> 
+                </div>
                 <div class="title m-b-md">
-                    Main Menu
+                    Projects
                 </div>
 
                 <div class="links">
-                    <a href="{{ url('/projects') }}">Projects</a>
+                    <a href="https://healthjourney.herokuapp.com" target="_new">Health Planner</a>
+                    <a href="https://shillar.herokuapp.com" target="_new">Shillar</a>
                 </div>
             </div>
         </div>
